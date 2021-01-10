@@ -1,5 +1,7 @@
 from django.urls import path
 
-from .views import main
+from .views import SensorCreateView, main
 
-urlpatterns = [path("", main)]
+urlpatterns = [
+    path("create/", SensorCreateView.as_view()),
+]
