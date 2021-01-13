@@ -7,4 +7,9 @@ from sensors.models import Sensor
 class SensorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Sensor
-        fields = ("id", "sensor_type", "created_at")
+        fields = (
+            "id",
+            "name",
+            "location",
+            "sensor_type",
+        )

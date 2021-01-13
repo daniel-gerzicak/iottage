@@ -1,5 +1,6 @@
+from django.http import request
 from django.urls import path
 
-from .views import index
+from .views import IndexView
 
-urlpatterns = [path("", index)]
+urlpatterns = [path("", IndexView)]
