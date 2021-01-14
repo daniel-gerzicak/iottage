@@ -13,8 +13,9 @@ class Sensor(models.Model):
     options = [("hum", "Humidity"), ("temp", "Temperature"), ("press", "Pressure")]
     sensor_type = models.CharField(max_length=15, choices=options,)
 
-    def __str__(self):
-        return "%s, %s" % (self.name, self)
+
+# def __str__(self):
+#    return "%s, %s" % (self.name, self.location)
 
 
 class Entry(models.Model):
@@ -34,5 +35,5 @@ class TemperatureEntry(Entry):
 
 
 class PressureEntry(Entry):
-    Presuure = models.FloatField(max_length=5)
+    pressure = models.FloatField(max_length=5)
 

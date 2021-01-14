@@ -1,7 +1,7 @@
 from django.db.models import fields
 from rest_framework import serializers
 
-from sensors.models import Sensor
+from sensors.models import Entry, HumidityEntry, Sensor
 
 
 class SensorSerializer(serializers.ModelSerializer):
@@ -13,3 +13,9 @@ class SensorSerializer(serializers.ModelSerializer):
             "location",
             "sensor_type",
         )
+
+
+class HumSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = HumidityEntry
+        fields = ("sensor", "datetime, humidity")
