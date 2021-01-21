@@ -10,5 +10,5 @@ function Test(){
     );
 }
 
-ReactDom.render(<Test />, document.getElementById('test'));
+export default Test;
 

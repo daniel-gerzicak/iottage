@@ -15,7 +15,6 @@ export default class Login extends Component{
 
 
 
-const appDiv = document.getElementById("login");
-render(<Login />, appDiv);
+
 
 
