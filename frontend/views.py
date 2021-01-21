@@ -8,9 +8,12 @@ from django.views import View
 
 def IndexView(request):
     if not request.user.is_authenticated:
-        return redirect("/admin")
+        return redirect("/login")
 
     else:
 
         return render(request, "frontend/index.html")
+
+def LoginView(request):
+    return render(request, "frontend/login.html")
 

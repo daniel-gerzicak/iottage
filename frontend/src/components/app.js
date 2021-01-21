@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import { render } from "react-dom";
+import Login from "./login";
 
 export default class App extends Component{
     constructor(props){
@@ -12,5 +13,9 @@ export default class App extends Component{
     
 }
 
-const appDiv = document.getElementById("app");
+
+
+const appDiv = document.getElementById("home");
 render(<App />, appDiv);
+
+//render(<Login/>,document.getElementById("login") )
