@@ -35,4 +35,5 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("sensors/", include("sensors.urls")),
     path("", include("frontend.urls")),
+    path("user/", include("auth.urls")),
 ]
