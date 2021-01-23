@@ -1,7 +1,8 @@
 import React, {Component} from "react";
 import { render } from "react-dom";
 import Login from "./login";
-import Test from"./test";
+import NavPanel from "./nav";
+
 
 import {
     BrowserRouter as Router,
@@ -9,6 +10,7 @@ import {
     Route,
     Link
   } from "react-router-dom";
+import { makeStyles } from "@material-ui/core";
   
 
 export default class App extends Component{
@@ -16,11 +18,15 @@ export default class App extends Component{
         super(props);
     }
 
+
     render(){
+        
+
         return(
             <div>
+                <NavPanel/>
                 <Router>
-                    <Route path="/test/" component={Test}/>
+                    <Route path="/login/" component={Login}/>
                 </Router>
                 <h1> Welcome </h1>
                 
