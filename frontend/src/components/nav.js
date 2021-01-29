@@ -9,6 +9,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 
 import theme from './theme';
 import { ThemeProvider } from '@material-ui/core/styles';
+import { Grid } from '@material-ui/core';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -34,10 +35,12 @@ export default function NavPanel() {
           <Button color="inherit" href='/'>
             Home
           </Button>
-          <Button color="inherit">Logout</Button>
+          <Button color="inherit" href='/user/logout'>Logout</Button>
         </Toolbar>
       </AppBar>
       </ThemeProvider>
+      <Grid style={{height: '5%'}}>
+      </Grid>
     </div>
   );
 }

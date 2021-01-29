@@ -2,6 +2,8 @@ import React, {Component} from "react";
 import { render } from "react-dom";
 import Login from "./login";
 import NavPanel from "./nav";
+import TestChart from "./chart";
+
 
 
 import {
@@ -27,8 +29,8 @@ export default class App extends Component{
                 <NavPanel/>
                 <Router>
                     <Route path="/login/" component={Login}/>
+                    <Route path="/" component={TestChart} />
                 </Router>
-                <h1> Welcome </h1>
                 
             </div>
            

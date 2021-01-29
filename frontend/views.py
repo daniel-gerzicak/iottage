@@ -16,3 +16,4 @@ def IndexView(request):
 
 def LoginView(request):
     return render(request, "frontend/login.html")
+

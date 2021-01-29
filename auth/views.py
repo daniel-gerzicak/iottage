@@ -1,4 +1,4 @@
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import redirect, render
 from rest_framework import status
 from rest_framework.response import Response
@@ -19,3 +19,8 @@ class LoginApiView(APIView):
             return Response(status=status.HTTP_400_BAD_REQUEST)
 
     # No backend authenticated the credentials
+
+
+def LogoutView(request):
+    logout(request)
+    return redirect("/")

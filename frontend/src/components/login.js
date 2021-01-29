@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
 
-import { Grid, TextField, Button, Typography, Box } from "@material-ui/core";
+import { Grid, TextField, Button, Typography, Box, Paper } from "@material-ui/core";
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import { makeStyles } from '@material-ui/core/styles';
@@ -43,7 +43,6 @@ export default class Login extends Component{
                 password: this.state.password,
             })
         };
-        console.log(requestOpions.body);
         fetch('/user/login', requestOpions).then((response) => {
             if (response.ok){
                 this.props.history.push('/')
@@ -59,20 +58,43 @@ export default class Login extends Component{
 
     render(){
 
+        const useStyles = makeStyles(theme => ({
+            color: {
+            backgroundColor: 'black'
+            }
+        }));
+
         
         return(
 
-        <div>
+            
+        <div style={{ 
+            position: 'absolute',
+            left: '50%',
+            top: '40%',
+            transform: 'translate(-50%, -50%)',
+            width: "30%",
+            height: "25%"
+            
+            }}>
            <ThemeProvider theme={theme}>
-            <Grid container spacing={1} alignItems="baseline" justify="center" variant="outlined" border={1} direction="row">
+            
+           <Grid
+                container
+                spacing={1}
+                direction="column"
+                alignItems="center"
+                justify="center"
+                style={{ backgroundColor: 'whitesmoke', width:'100%', borderWidth:"2", borderStyle: "solid", borderColor: '#4dd2ff'}}
+                >
                 
-                <Grid item xs={12} align="center">
+                <Grid item align="center" style={{ width:'100%'}}>
                     <Typography variant="h4" component="h4">
                         Login
                     </Typography>
                 </Grid>
 
-                <Grid item xs={12} align="center" >
+                <Grid item xs={12} align="center" style={{ width:'120%'}}>
                     < TextField
                         id="userfield"
                         label="Username"
@@ -86,19 +108,19 @@ export default class Login extends Component{
                               </InputAdornment>
                             ),
                           }}
-                        style ={{width: '30%'}}
 
                     />
                 </Grid>
 
-                <Grid item xs={12} align="center">
+                <Grid item xs={12} align="center" style={{ width:'100%'}}>
                     < TextField
                         id="password"
                         label="Password"
                         placeholder="Enter your Password"
                         variant="outlined"
                         onChange={this.passwordFieldHandler}
-                        style ={{width: '30%'}}
+                        error={this.state.error}
+
 
                     />
                 </Grid>
@@ -110,8 +132,9 @@ export default class Login extends Component{
                 </Grid>
 
             </Grid>
-        <h3>update  damn was{this.username}</h3>
+           
         </ThemeProvider>
+        
         </div>
         
         
