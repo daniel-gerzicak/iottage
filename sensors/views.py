@@ -1,18 +1,25 @@
 from datetime import datetime
 
+from django.db.models.base import Model
 from django.http import HttpResponse
 from django.http.response import HttpResponse
 from django.shortcuts import render
 from django.views import View
-from rest_framework import generics
+from rest_framework import generics, viewsets
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from sensors.models import HumidityEntry, PressureEntry, Sensor, TemperatureEntry
 from sensors.serializers import HumSerializer, SensorSerializer
 
-
 # Create your views here.
+
+
+class SensorGetView(viewsets.ModelViewSet):
+    queryset = Sensor.objects.all()
+    serializer_class = SensorSerializer
+
+
 def main(request):
     return HttpResponse("<h1>Test sensors</h1>")
 
@@ -26,6 +33,9 @@ class EntryView(APIView):
         queryset = Sensor.objects.filter(id=requst.data["id"])
         if queryset.exists():
             sens = queryset[0]
+            sens.last_contact = requst.data["datetime"]
+            sens.last_value = requst.data["value"]
+            sens.save()
 
             if sens.sensor_type == "hum":
                 entry = HumidityEntry(

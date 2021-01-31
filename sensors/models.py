@@ -9,6 +9,7 @@ class Sensor(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     last_contact = models.DateTimeField(blank=True, null=True,)
     is_active = models.BooleanField(blank=True, null=True)
+    last_value = models.FloatField(max_length=5)
 
     options = [("hum", "Humidity"), ("temp", "Temperature"), ("press", "Pressure")]
     sensor_type = models.CharField(max_length=15, choices=options,)

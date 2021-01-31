@@ -32,7 +32,7 @@ export default function NavPanel() {
         <ThemeProvider theme={theme}>
       <AppBar position="static">
         <Toolbar>
-          <Button color="inherit" href='/'>
+          <Button color="inherit" href='/home/'>
             Home
           </Button>
           <Button color="inherit" href='/user/logout'>Logout</Button>

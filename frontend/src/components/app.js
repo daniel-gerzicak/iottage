@@ -3,6 +3,7 @@ import { render } from "react-dom";
 import Login from "./login";
 import NavPanel from "./nav";
 import TestChart from "./chart";
+import Home from "./home";
 
 
 
@@ -29,7 +30,7 @@ export default class App extends Component{
                 <NavPanel/>
                 <Router>
                     <Route path="/login/" component={Login}/>
-                    <Route path="/" component={TestChart} />
+                    <Route path="/home/" component={Home} />
                 </Router>
                 
             </div>

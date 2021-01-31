@@ -7,12 +7,7 @@ from sensors.models import Entry, HumidityEntry, Sensor
 class SensorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Sensor
-        fields = (
-            "id",
-            "name",
-            "location",
-            "sensor_type",
-        )
+        fields = ("id", "name", "location", "sensor_type", "last_contact", "last_value")
 
 
 class HumSerializer(serializers.ModelSerializer):
