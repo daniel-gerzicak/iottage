@@ -10,7 +10,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from sensors.models import HumidityEntry, PressureEntry, Sensor, TemperatureEntry
-from sensors.serializers import HumSerializer, SensorSerializer
+from sensors.serializers import HumSerializer, SensorSerializer, TempSerializer
 
 # Create your views here.
 
@@ -18,6 +18,16 @@ from sensors.serializers import HumSerializer, SensorSerializer
 class SensorGetView(viewsets.ModelViewSet):
     queryset = Sensor.objects.all()
     serializer_class = SensorSerializer
+
+
+class HumidityGetView(viewsets.ModelViewSet):
+    queryset = HumidityEntry.objects.all()
+    serializer_class = HumSerializer
+
+
+class TemperatureGetView(viewsets.ModelViewSet):
+    queryset = TemperatureEntry.objects.all()
+    serializer_class = TempSerializer
 
 
 def main(request):

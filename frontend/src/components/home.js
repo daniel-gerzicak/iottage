@@ -1,10 +1,13 @@
+import { Grid } from "@material-ui/core";
 import React, {Component} from "react";
+import Sticker from './sticker';
+import TempGraph from './tempGraph';
 
 export default class Home extends Component{
     constructor(props) {
         super(props);
         this.state = {
-          items: ""
+          sensors: ""
         };
         
       }
@@ -12,17 +15,14 @@ export default class Home extends Component{
       async componentDidMount() {
         const response = await fetch('/sensors/sensors/');
         const data = await response.json();
-        this.setState({items : data});
+        this.setState({sensors : data});
     }
       
     render(){
-        if (!jQuery.isEmptyObject(this.state.items)) {
-            var data = this.state.items;
+        if (!jQuery.isEmptyObject(this.state.sensors)) {
+            var data = this.state.sensors;
+            var temp = data.find( x => x.name === "Test").last_value;
 
-            var result = data.find( x => x.name === "Test");
-
-            document.getElementById("hail").innerHTML = result.id;
-            
         }
         else{
             var data = [];
@@ -31,10 +31,15 @@ export default class Home extends Component{
 
         return(
         <div>
-            <h1>Motherfucker</h1>{console.log(data[2])}
-            <div id ="hail">
-
-            </div>
+            <Grid container spacing={1}  align="center" justify="center" direction="row">
+                <Grid item xs = {3}>
+                    <Sticker text="Aktuální teplota je:" val={temp}/>
+                </Grid>
+                <Grid item xs = {5}>
+                    <TempGraph />
+                </Grid>
+            </Grid>
+            
         </div>
         )
     }
