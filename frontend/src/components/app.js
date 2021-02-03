@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import { render } from "react-dom";
 import Login from "./login";
 import NavPanel from "./nav";
-import SiderDemo from "./temp";
+import Home from "./home";
 
 
 
@@ -29,7 +29,7 @@ export default class App extends Component{
                 <NavPanel/>
                 <Router>
                     <Route path="/login/" component={Login}/>
-                    <Route path="/" exact component={SiderDemo} />
+                    <Route path="/" exact component={Home} />
                 </Router>
                 
             </div>
