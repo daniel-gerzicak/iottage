@@ -45,7 +45,7 @@ export default class Login extends Component{
         };
         fetch('/user/login', requestOpions).then((response) => {
             if (response.ok){
-                this.props.history.push('/home/')
+                this.props.history.push('/')
             } else {
                 this.setState({error: "Invalid login"})
             }

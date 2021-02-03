@@ -2,8 +2,7 @@ import React, {Component} from "react";
 import { render } from "react-dom";
 import Login from "./login";
 import NavPanel from "./nav";
-import TestChart from "./chart";
-import Home from "./home";
+import SiderDemo from "./temp";
 
 
 
@@ -30,7 +29,7 @@ export default class App extends Component{
                 <NavPanel/>
                 <Router>
                     <Route path="/login/" component={Login}/>
-                    <Route path="/home/" component={Home} />
+                    <Route path="/" exact component={SiderDemo} />
                 </Router>
                 
             </div>

@@ -11,7 +11,7 @@ def IndexView(request):
         return redirect("/login/")
 
     else:
-        return render(request, "frontend/home.html")
+        return render(request, "frontend/index.html")
 
 
 def LoginView(request):

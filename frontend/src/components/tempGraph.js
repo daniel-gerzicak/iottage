@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import {
-  LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
+  LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer,
 } from 'recharts';
 
 
@@ -26,8 +26,8 @@ export default class TempGraph extends PureComponent {
     if (!jQuery.isEmptyObject(this.state.temp)) {
         var temperatures = this.state.temp;
 
-        temperatures = temperatures.filter(entry => entry.sensor == "1");
-        temperatures = temperatures.filter(entry => Date.now()-Date.parse(entry.datetime) < 86400000 );
+        temperatures = temperatures.filter(entry => entry.sensor == this.props.sensor);
+        temperatures = temperatures.filter(entry => Date.now()-Date.parse(entry.datetime) < 3600000 * this.props.hours );
        
         var tempArray = []
 
@@ -49,9 +49,9 @@ export default class TempGraph extends PureComponent {
     
     return (
         <div style={{ backgroundColor: 'whitesmoke', width:'100%', borderWidth:"2", borderStyle: "solid", borderColor: '#4dd2ff'}}>
+            <p>Teplota za 24 hodin</p>
+            <ResponsiveContainer width="90%" height="80%">
             <LineChart
-                width={500}
-                height={300}
                 data={tempArray}
                 margin={{
                 top: 5, right: 30, left: 20, bottom: 5,
@@ -64,6 +64,7 @@ export default class TempGraph extends PureComponent {
                 <Legend />
                 <Line type="monotone" dataKey="Teplota" stroke="#4dd2ff" activeDot={{ r: 8 }} />
             </LineChart>
+            </ResponsiveContainer>
         </div>
     );
   }

@@ -36,7 +36,7 @@ export default class Home extends Component{
                     <Sticker text="Aktuální teplota je:" val={temp}/>
                 </Grid>
                 <Grid item xs = {5}>
-                    <TempGraph />
+                    <TempGraph sensor={1} hours={24}/>
                 </Grid>
             </Grid>
             
