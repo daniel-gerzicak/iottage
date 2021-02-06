@@ -21,6 +21,10 @@ import MailIcon from '@material-ui/icons/Mail';
 import { Button } from '@material-ui/core';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 
+// icons
+import { Icon, InlineIcon } from '@iconify/react';
+import thermometerIcon from '@iconify-icons/mdi/thermometer';
+
 const drawerWidth = 150;
 
 
@@ -134,16 +138,17 @@ export default function NavPanel() {
           </IconButton>
         </div>
         <Divider />
-        <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
+        <Button >
+          Uvnitř 
+        </Button>
+
+        <Button >
+          Venku
+        </Button>
+
+        
         <Divider />
-        <Button href="/user/logout" startIcon={<AccountCircle />}>Logout</Button>
+        <Button href="/user/logout" startIcon={<AccountCircle />}>Odhlásit</Button>
       </Drawer>
       <main
         className={clsx(classes.content, {
