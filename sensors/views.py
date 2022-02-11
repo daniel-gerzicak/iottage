@@ -58,6 +58,7 @@ class EntryView(APIView):
                 entry = TemperatureEntry(
                     sensor=sens, datetime=requst.data["datetime"], temperature=requst.data["value"]
                 )
+
                 entry.save()
                 return HttpResponse("201")
 

@@ -26,8 +26,8 @@ def getTime():
 
 
 def wifi_connect(ssid, pwd, interface):
-    """ connect to wifi with provided password and print the result
-        20 sec delay loop the check if we're connected
+    """connect to wifi with provided password and print the result
+    20 sec delay loop the check if we're connected
     """
     # activate the interface
     interface.active(True)
@@ -82,8 +82,8 @@ def postHum(sensor):
 # -----------------------------------------------------------------------------------------------------------------#
 micropython.alloc_emergency_exception_buf(100)
 
-SSID = "GNET"
-wifiPassword = "psw4Internet"
+SSID = "THE SSID"
+wifiPassword = "THE PASSWORD"
 
 wlan0 = network.WLAN(network.STA_IF)
 
@@ -94,4 +94,3 @@ else:
 
 sensor = dht.DHT22(Pin(14))
 postHum(sensor)
-
