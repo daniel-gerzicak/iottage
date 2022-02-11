@@ -82,8 +82,8 @@ def postHum(sensor):
 # -----------------------------------------------------------------------------------------------------------------#
 micropython.alloc_emergency_exception_buf(100)
 
-SSID = "GNET"
-wifiPassword = "psw4Internet"
+SSID = #your SSID
+wifiPassword = #your psw
 
 wlan0 = network.WLAN(network.STA_IF)
 
